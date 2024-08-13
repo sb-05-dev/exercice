@@ -1,11 +1,18 @@
-<div>
-    <h2>Pabiosoft</h2>
-    <ul>
-      <li *ngFor="let user of users$ | async">
-        <p><strong>titte: {{ user.title }} </strong></p> 
-        <p>Description: ({{ user.description }} )</p>
-         <p>Date: {{user.createdDate}} </p>
-         <p>location: {{user.location}}</p>
-      </li>
-    </ul>
-</div>
+<!-- requete POST --> 
+<button (click)="createPost()">POST</button>
+
+<!-- requete PUT -->
+<button (click)="updatePost()">PUT</button>
+
+<!-- requete DELETE -->
+<button (click)="deletePost()">DELETE</button>
+
+<!-- requete PATCH -->
+<button (click)="patchPost()">PATCH</button>
+
+<!-- requete GET -->
+
+<div *ngFor="let post of posts">
+  <h2>{{ post.title }}</h2>
+  <p>{{ post.body }}</p>
+</div> 
