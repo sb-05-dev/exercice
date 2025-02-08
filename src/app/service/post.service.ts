@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { essaie,  } from './models';
+import { Essaie } from '../model/essaie.models';
 
 
 @Injectable({
@@ -12,23 +12,23 @@ export class PostService{
 
   constructor(private http: HttpClient) { }
 
-  getPosts(): Observable<essaie[]> {
-    return this.http.get<essaie[]>(this.apiUrl);
+  getPosts(): Observable<Essaie[]> {
+    return this.http.get<Essaie[]>(this.apiUrl);
   }
 
-  createPost(post: essaie): Observable<essaie> {
+  createPost(post: Essaie): Observable<Essaie> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.post<essaie>(this.apiUrl, post, { headers });
+    return this.http.post<Essaie>(this.apiUrl, post, { headers });
   }
 
-  updatePost(id: number, post: essaie): Observable<essaie> {
+  updatePost(id: number, post: Essaie): Observable<Essaie> {
     const url = `${this.apiUrl}/${id}`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.put<essaie>(url, post, { headers });
+    return this.http.put<Essaie>(url, post, { headers });
   }
 
   deletePost(id: number): Observable<void> {
@@ -36,11 +36,11 @@ export class PostService{
     return this.http.delete<void>(url);
   }
 
-  patchPost(id: number, partialPost: Partial<essaie>): Observable<essaie> {
+  patchPost(id: number, partialPost: Partial<Essaie>): Observable<Essaie> {
     const url = `${this.apiUrl}/${id}`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.patch<essaie>(url, partialPost, { headers });
+    return this.http.patch<Essaie>(url, partialPost, { headers });
   }
 }

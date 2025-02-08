@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../service/post.service';
 import { CommonModule } from '@angular/common';
-import { essaie} from '../service/models';
-import { HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Essaie } from '../model/essaie.models';
+
 
 @Component({
    selector: 'app-user-list',
@@ -15,7 +14,7 @@ import { Observable } from 'rxjs';
 
 export class UserListComponent implements OnInit {
   data: any;
-  posts: essaie[] = [];
+  posts: Essaie[] = [];
 
   constructor(private apiService: PostService) { }
 
@@ -31,7 +30,7 @@ export class UserListComponent implements OnInit {
   }
 
   createPost(): void {
-    const newPost: essaie = {
+    const newPost: Essaie = {
       title: 'ESsaie avec POST',
       body: 'Saidou'
     };
@@ -43,7 +42,7 @@ export class UserListComponent implements OnInit {
 
   updatePost(): void {
     const postId = 1;
-    const updatedPost: essaie = {
+    const updatedPost: Essaie = {
       title: 'methode PUT',
       body: 'misa a jour donné existant.'
     };
@@ -63,7 +62,7 @@ export class UserListComponent implements OnInit {
 
   patchPost(): void {
     const postId = 1; 
-    const partialPost: Partial<essaie> = {
+    const partialPost: Partial<Essaie> = {
       title: 'methode PATCH'
     };
     

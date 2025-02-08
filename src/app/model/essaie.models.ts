@@ -1,7 +1,7 @@
 /**
  * essaie de GET
  */
-export interface essaie {
+export interface Essaie {
   id?: number;
   title: string;
   body: string;
